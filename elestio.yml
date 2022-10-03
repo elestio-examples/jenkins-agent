@@ -1,0 +1,31 @@
+ports:
+  - protocol: "TCP"
+    targetProtocol: "TCP"
+    listeningPort: "2022"
+    targetPort: "20022"
+    targetIP: "172.17.0.1"
+    public: true
+    path: "/"
+    isAuth: false
+environments:
+  - key: SOFTWARE_VERSION_TAG
+    value: "jdk11"
+  - key: JENKINS_AGENT_SSH_PUBKEY
+    value: "PUT_YOUR_SSH_PUBLIC_KEY_HERE"
+    
+config:
+  runTime: "dockerCompose"
+  version: ""
+  framework: ""
+  buildCommand: "docker-compose build"
+  buildDir: "/"
+  runCommand: "docker-compose up -d"
+  icon: ""
+  screenshot: "jenkins.jpg"
+lifeCycleConfig:
+  preInstallCommand: "./scripts/preInstall.sh"
+  postInstallCommand: "./scripts/postInstall.sh"
+  preBackupCommand: "./scripts/preBackup.sh"
+  postBackupCommand: "./scripts/postBackup.sh"
+  preRestoreCommand: "./scripts/preRestore.sh"
+  postRestoreCommand: "./scripts/postRestore.sh"

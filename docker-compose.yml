@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  jenkins-agent:
+    image: jenkins/ssh-agent:${SOFTWARE_VERSION_TAG}
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - '172.17.0.1:20022:22'
