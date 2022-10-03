@@ -1,7 +1,7 @@
 ports:
   - protocol: "TCP"
     targetProtocol: "TCP"
-    listeningPort: "2022"
+    listeningPort: "2222"
     targetPort: "20022"
     targetIP: "172.17.0.1"
     public: true
