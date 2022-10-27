@@ -21,7 +21,8 @@ Agent will be available on:
 
     Host: [CI_CD_DOMAIN]
     Protocol: SSH
-    Port: 2022
+    Port: 2222
+    SSH User: jenkins
     Auth: (based on the SSH Public Key provided in env var)
 
 ## How to add the agent node to your Jenkins server
