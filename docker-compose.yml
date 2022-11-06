@@ -2,9 +2,15 @@ version: '3.3'
 
 services:
   agent:
-    image: jenkins/ssh-agent:${SOFTWARE_VERSION_TAG}
+    #image: jenkins/ssh-agent:${SOFTWARE_VERSION_TAG}
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    privileged: true
     restart: always
     env_file:
       - .env
     ports:
       - '172.17.0.1:20022:22'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock 

@@ -15,6 +15,8 @@ Set the SSH public key that should be accepted by your agent (usually the Public
     
     JENKINS_AGENT_SSH_PUBKEY
 
+Note 1: You can also edit the Dockerfile if you want to include any specific tool in the jenkins-agent container, by default we have git, docker.io, curl & rsync preinstalled but you can add anything you need in Dockerfile.
+
 # Once deployed ...
 
 Agent will be available on:
