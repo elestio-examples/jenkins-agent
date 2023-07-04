@@ -1,0 +1,26 @@
+version: "3.3"
+services:
+  jenkins:
+    image: elestio4test/jenkins:${SOFTWARE_VERSION_TAG}
+    restart: always
+    environment:
+      - .env
+    user: 0:0
+    volumes:
+      - ./data:/var/jenkins_home
+    ports:
+      - '172.17.0.1:21080:8080'
+  agent:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    privileged: true
+    restart: always
+    user: 0:0
+    env_file:
+      - .env
+    ports:
+      - '172.17.0.1:21090:22'
+    volumes:
+     - /usr/bin/docker:/usr/bin/docker
+     - /var/run/docker.sock:/var/run/docker.sock`
